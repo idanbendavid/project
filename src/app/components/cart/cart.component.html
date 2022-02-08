@@ -1,0 +1,56 @@
+<div class="cart">
+  <div class="cartHeadline">
+    <h4>{{usersService.firstName}} Cart</h4>
+    <fa-icon [icon]="faMinusCircle" title="Empty Cart"
+      (click)="onClickDeleteAllItemsFromCart(this.cartService.cart.cartId)"></fa-icon>
+  </div>
+
+  <div class="emptyCart" *ngIf="!this.cartService.cart.lineItems.length">
+    <p>your cart seems to be Empty</p>
+  </div>
+
+  <div class="cartItems" *ngFor="let item of this.cartService.cart.lineItems">
+    <div class="itemDetails">
+    <p>{{item.categoryName}}</p>
+    <p id="itemName">{{item.name}}</p>
+    <p>
+      {{item.quantity}} X
+      {{item.pricePerUnit}}$ =
+      <b id="finalPriceInCart">{{item.finalPrice}}$</b>
+    </p>
+    </div>
+    <div class="imageInCart">
+      <fa-icon [icon]="faTrashAlt" (click)="onClickDeleteOneItemFromCart(item.productId)" title="Remove Item"></fa-icon>
+      <img src="{{item.image}}" alt="item image">
+    </div>
+  </div>
+
+  <div class="cartCheckout">
+    <p>total price: {{this.cartService.finalPrice.value}}$ </p>
+    <button *ngIf="this.cartService.cart.lineItems.length" id="selectQuantityButton" class="btn btn-success"
+      (click)="onSelcetQuantityClicked(content)">Select Quantity</button>
+  </div>
+</div>
+
+<div>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Enter Quantity For each Product</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true" class="btn btn-danger">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p *ngFor="let item of this.cartService.cart.lineItems"> Enter Quantity For <b>{{item.name}}</b>,
+        Price For One: {{item.pricePerUnit}}$
+        <input class="quantityInput" type="number" [min]="quantityMinValue" [value]="item.quantity" max="10"
+          (change)="onItemQuantityChange($event,item.productId,item.pricePerUnit)" required />
+      </p>
+      <p class="notifyFinalPrice" *ngIf="isCompleteOrderClicked">Your Order Total Price Is Expected To Be:
+        {{this.cartService.finalPrice.value}}$</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-info" (click)="onCompletePurchaseClicked()">Complete Purchase</button>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,76 @@
+<div class="order-page">
+  <div class="order-page-headline">
+    <h1>order review</h1>
+  </div>
+
+  <div class="row order-content">
+    <div class="col-7 product-section">
+      <div class="search-product-in-receipt">
+        <input type="search" placeholder="Search Product In receipt" [(ngModel)]="searchProductInReceipt">
+      </div>
+      <div id="contentToConvert">
+        <h3 id="orderDetailsH4">Order Details</h3>
+        <table class="order-table">
+          <tr class="table-header-row">
+            <th id="order-data-product-header">Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+          <tr class="order-table-row" *ngFor="let item of this.cartService.cart.lineItems">
+            <td [innerHtml]="item.name | highlight: searchProductInReceipt" id="order-data-item-name">{{item.name}}
+            </td>
+            <td>{{item.pricePerUnit}}$</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.finalPrice}}$</td>
+          </tr>
+        </table>
+        <div class="order-final-price">
+          <h3>Amount Of Products: {{this.cartService.cart.lineItems.length}}</h3>
+          <h3>Total Price: {{this.cartService.finalPrice.value}}$</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-5 user-details-section">
+      <div class="shipping-details">
+        <h3>shipping details:</h3>
+        <form class="shipping-details-form">
+          <label id="orderCityLabel">City</label>
+          <select [(ngModel)]="this.user.city" id="cityOrder" [formControl]="cityFormControl" required #citySelectRef>
+            <option selected>Choose A City</option>
+            <option *ngFor="let city of this.cityService.cities">{{city.name}}</option>
+          </select>
+          <br><br>
+          <label id="orderLabelStreet">Street</label>
+          <input type="text" placeholder="Street" [formControl]="streetFormControl" [(ngModel)]="this.user.street"
+            #streetForOrderRef>
+          <br><br>
+          <label id="orderShippingDateLabel">Shipping Date</label>
+          <input type="date" [formControl]="shippingDateFormControl" #shippingDateRef>
+        </form>
+      </div>
+
+      <br>
+
+      <div class="payment-section">
+        <h3>payment method:</h3>
+        <form class="payment-form">
+          <label id="PaymentIdLabel">Id</label>
+          <input type="number" placeholder="id" minlength="9" maxlength="9" [(ngModel)]="this.user.globalId"
+            [formControl]="globalIdFormControl" #OrderIdRef>
+          <br><br>
+          <label id="creditCardLabel">Credit Card</label>
+          <input type="number" placeholder="Credit Card" [formControl]="creditCardFormControl" required maxlength="16"
+            minlength="16" #creditCardRef>
+          <br>
+          <span
+            *ngIf="creditCardFormControl.errors?.['minlength(16)'] && creditCardFormControl.errors?.['maxlength(16)']">Invalid
+            Credit Card</span>
+          <br>
+          <button class="btn btn-primary" (click)="order()">ORDER</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

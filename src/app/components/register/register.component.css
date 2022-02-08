@@ -1,0 +1,78 @@
+.registerHeadline {
+  text-align: center;
+  padding-top: 150px;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.registerPage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  margin: 70px 250px 0px 250px;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+h3 {
+  text-decoration: underline;
+  margin-bottom: 30px;
+}
+
+form>label {
+  margin-right: 30px;
+}
+
+select {
+  width: 189px;
+  height: 30px;
+  margin-left: 48px;
+}
+
+
+#globalIdField {
+  margin-left: 51px;
+  width: 189px;
+}
+
+#streetField {
+  margin-left: 35px;
+}
+
+#emailField {
+  margin-left: 29px;
+}
+
+#validateInput {
+  margin-left: 12px;
+}
+
+span {
+  color: red;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 90px;
+}
+
+input, select, .btn .btn-success {
+  margin-top: 10px;
+}
+
+.vl {
+  border-left: 6px solid black;
+  height: 500px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: 220px;
+}
+
+.footer {
+  background-color: #eaf9fb;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  height: 100px;
+  top: 840px;
+}

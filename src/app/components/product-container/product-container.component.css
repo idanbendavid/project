@@ -1,0 +1,34 @@
+.productsPage {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+}
+
+aside {
+  display: inline-block;
+  position: fixed;
+}
+
+.products-container {
+  width: calc(100% - 400px);
+  position: relative;
+  margin-left: 370px;
+  margin-top: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.searchInput {
+  padding-top: 130px;
+  position: relative;
+  left: 1590px;
+}
+
+.searchInput > input {
+  width: 275px;
+  border-radius: 15px;
+  padding-left: 15px;
+}

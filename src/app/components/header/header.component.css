@@ -1,0 +1,77 @@
+.header {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  background-color: #0071dc;
+  font-family: BogleWeb, Helvetica Neue, Helvetica, Arial, sans-serif;
+  position: fixed;
+  z-index: 101;
+  width: 100%;
+  text-transform: capitalize;
+}
+
+.headline {
+  margin-left: 85px;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  color: white;
+  font-size: 20px;
+  margin-left: 800px;
+}
+
+.divisions {
+  display: flex;
+  cursor: pointer;
+  margin-left: 80px;
+  color: white;
+}
+
+.divisions>h3 {
+  margin-left: 25px;
+}
+
+.dropdownMenu>h3 {
+  color: black;
+  background-color: white;
+  font-family: BogleWeb, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.ng-fa-icon {
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.userActions {
+  display: flex;
+  margin-left: 80px;
+  align-items: center;
+}
+
+.userActions>.ng-fa-icon {
+  font-size: 25px;
+}
+
+.userActions>h3 {
+  margin-left: 70px;
+  cursor: pointer;
+}
+
+.userActions>p {
+  margin-left: 50px;
+  align-items: center;
+  font-size: 25px;
+  margin-top: 7px;
+}
+
+h3>.ng-fa-icon {
+  margin-right: 5px;
+  align-items: center;
+}
+
+.dropdownMenu {
+  font-size: 18px;
+}

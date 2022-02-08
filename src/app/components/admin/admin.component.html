@@ -1,0 +1,107 @@
+<div class="adminPage">
+  <div class="adminActions">
+    <button class="btn btn-dark" (click)="showProducts()">Show Products</button>
+    <button class="btn btn-light" (click)="showCategories()">ShowCategories</button>
+  </div>
+
+  <div *ngIf="showProductList">
+    <h3>Products List</h3>
+
+    <div class="addProductDiv">
+      <h4>Add New Product:</h4>
+      <form [formGroup]="addProductFormGroup" (submit)="addProduct()">
+        <input type="text" placeholder="Product Name" [formControl]="addProductNameFormControl" required
+          #productNameRef>
+        <select class="selectCategory" [formControl]="addProductCategoryFormControl" #categoryNameRef>
+          <option value="" selected>Choose Product Category</option>
+          <option *ngFor="let category of categories">{{category.categoryName}}</option>
+        </select>
+        <input type="number" placeholder="Product Price" [formControl]="addProductPriceFormControl" required
+          #productPriceRef>
+        <input type="number" placeholder="Units In Stock" [formControl]="addProductStockFormControl" required
+          #productStockRef>
+        <button class="btn btn-info">Add Product</button>
+      </form>
+      <app-file-upload (childEvent)="onFileUpload($event)"></app-file-upload>
+    </div>
+    <summary>
+      please upload image before pressing add product button
+    </summary>
+    <br>
+
+    <div class="editProductForm">
+      <h4>Edit Product:</h4>
+      <form [formGroup]="editProductFormGroup">
+        <input type="number" placeholder="Product Id" [formControl]="editProductIdFormControl" required
+          #editProductIdRef>
+        <input type="text" placeholder="Product Name" [formControl]="editProductNameFormControl" required
+          #editProductNameRef>
+        <select [formControl]="editProductCategoryFormControl" #editCategoryNameRef>
+          <option value="" selected>Choose Product Category</option>
+          <option *ngFor="let category of categories">{{category.categoryName}}</option>
+        </select>
+        <input type="number" placeholder="Product Price" [formControl]="editProductPriceFormControl" required
+          #editProductPriceRef>
+        <input type="number" placeholder="Units In Stock" [formControl]="editProductStockFormControl" required
+          #editProductStockRef>
+        <button class="btn btn-success" (click)="editProduct()">Edit Product</button>
+      </form>
+      <app-file-upload (childEvent)="onEditFileUpload($event)"></app-file-upload>
+    </div>
+    <summary>
+      please upload image before pressing edit Product button
+    </summary>
+
+
+    <div class="tableContainer">
+      <table>
+        <tr>
+          <th>Product Id</th>
+          <th>Name</th>
+          <th>Category Name</th>
+          <th>Price Per Unit</th>
+          <th>Image</th>
+          <th>Units In Stock</th>
+          <th>Edit Product</th>
+        </tr>
+        <tr *ngFor="let product of products">
+          <td>{{product.productId}}</td>
+          <td>{{product.name}}</td>
+          <td>{{product.categoryName}}</td>
+          <td>{{product.pricePerUnit}}</td>
+          <td>{{product.image}}</td>
+          <td>{{product.stock}}</td>
+          <td>
+            <span (click)="onEditClick(product)">
+              <i class="bi bi-pencil-square"></i>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showCategoryList" class="categoriesList">
+  <h3>Categories List</h3>
+  <div class="addCategory">
+    <h4>Add Category: </h4>
+    <form #loginForm="ngForm" class="addCategoryForm" [formGroup]="addCategoryFromGroup" (submit)="addCategory()">
+      <input type="text" placeholder="Enter Category Name" [formControl]="addCategoryNameFormControl" required
+        #addCategoryRef>
+      <button class="btn btn-success">Add Category</button>
+    </form>
+  </div>
+  <div class="categoriesTableContainer">
+    <table>
+      <tr>
+        <th>Category Id</th>
+        <th>Category Name</th>
+      </tr>
+      <tr *ngFor="let category of categories">
+        <td>{{category.categoryId}}</td>
+        <td>{{category.categoryName}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

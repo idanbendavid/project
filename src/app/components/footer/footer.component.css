@@ -1,0 +1,11 @@
+p {
+  margin-top: 15px;
+  margin-bottom: 0px;
+  text-transform: capitalize;
+  font-size: 18px;
+}
+
+a {
+  color: black;
+  cursor: pointer;
+}

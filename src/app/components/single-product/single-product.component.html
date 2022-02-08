@@ -1,0 +1,6 @@
+<div class="card">
+  <img src="{{product.image}}" alt="product image" />
+  <p>{{product.name}} {{product.pricePerUnit}}$</p>
+  <button class="btn btn-primary" *ngIf="this.showButton" (click)="onClickAddToCart(product)">Add To Cart</button>
+</div>
+

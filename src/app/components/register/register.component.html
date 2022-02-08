@@ -1,0 +1,88 @@
+<div>
+  <div class="registerHeadline">
+    <p>Create An Account At Retails R us</p>
+  </div>
+
+  <div class="registerPage">
+    <div class="registerPartOne">
+      <h3>Step One - User Details</h3>
+      <form>
+        <label>ID</label>
+        <input type="number" [formControl]="globalIdFormControl" placeholder="ID" minlength="9" maxlength="9"
+          id="globalIdField" required>
+        <br>
+        <span *ngIf="globalIdFormControl.errors?.['required'] && globalIdFormControl.touched && globalIdFormControl">Invalid ID</span>
+        <br>
+
+        <label>Email</label>
+        <input type="email" placeholder="Email" name="email"
+          pattern="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g"
+          [formControl]="emailFormControl" id="emailField" required>
+        <br>
+
+        <span *ngIf="emailFormControl.errors?.['required'] && emailFormControl.errors?.['pattern'] && emailFormControl.touched">Invalid Email</span>
+        <br>
+
+        <label>Password</label>
+        <input type="password" placeholder="Password" name="password1" [formControl]="passwordFormControl"
+          id="passwordInput" required>
+        <br>
+
+        <span *ngIf="passwordFormControl.invalid && passwordFormControl.touched">Missing password</span>
+        <br>
+
+        <label>validate</label>
+        <input type="password" placeholder="Password validation" name="password2"
+          [formControl]="validatePasswordFormControl" id="validateInput" required>
+        <br>
+        <span *ngIf="validatePasswordFormControl.invalid && validatePasswordFormControl.touched">Incorrect Value
+          Enterred</span>
+        <br>
+        <button class="btn btn-primary" [disabled]="passwordFormControl.value !== validatePasswordFormControl.value"
+          (click)="onContinueClicked()">Continue</button>
+      </form>
+    </div>
+
+    <div class="vl" *ngIf="isShown"></div>
+
+    <div class="registerPartTwo" *ngIf="isShown">
+      <h3>Step Two - Personal Information</h3>
+      <form [formGroup]="registerFormGroup" (submit)="completeRegistration()">
+        <label>First Name</label>
+        <input type="text" placeholder="First Name" [formControl]="firstNameFormControl" required>
+        <br>
+
+        <span *ngIf="firstNameFormControl.errors?.['required'] && firstNameFormControl.touched">Missing First
+          Name</span>
+        <br>
+
+        <label>Last Name</label>
+        <input type="text" placeholder="Last Name" [formControl]="lastNameFormControl" required>
+        <br>
+
+        <span *ngIf="lastNameFormControl.errors?.['required'] && lastNameFormControl.touched">Missing Last Name</span>
+        <br>
+
+        <label>City</label>
+        <select [formControl]="cityFormControl" required>
+          <option selected>Choose A City</option>
+          <option *ngFor="let city of this.cityService.cities">{{city.name}}</option>
+        </select>
+        <br>
+        <span *ngIf="cityFormControl.errors?.['required'] && cityFormControl.touched">Selcet City</span>
+        <br>
+
+        <label>Street</label>
+        <input type="text" placeholder="Enter Street" id="streetField" [formControl]="streetFormControl" required>
+        <br>
+        <span *ngIf="streetFormControl.errors?.['required'] && streetFormControl.touched">Enter Full Street</span>
+        <br>
+
+        <button class="btn btn-success">Register</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <app-footer></app-footer>
+</div>

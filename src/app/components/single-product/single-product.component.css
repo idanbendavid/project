@@ -1,0 +1,31 @@
+.card {
+  margin: 15px;
+  width: 225px;
+  height: 200px;
+  text-align: center;
+  align-items: center;
+  text-transform: capitalize;
+  box-sizing: border-box;
+  box-shadow: -7px 7px 2px 0px whitesmoke;
+}
+
+.card > button {
+  width: 110px;
+}
+
+.card > p{
+  margin-top: 6px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card > img {
+  max-width: 180px;
+  max-height: 120px;
+}
+
+.quantityInput {
+  margin-top: 4px;
+  width: 45px;
+  border: 1px solid black;
+}

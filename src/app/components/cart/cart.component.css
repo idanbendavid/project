@@ -1,0 +1,129 @@
+.cart {
+  border: 2px solid black;
+  width: 350px;
+  height: 837px;
+  position: absolute;
+  z-index: 100;
+  top: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.cartHeadline {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+}
+
+.cartHeadline>h4 {
+  text-align: center;
+  text-decoration: underline;
+  text-transform: capitalize;
+  margin-bottom: 12px;
+}
+
+.cartHeadline>.ng-fa-icon {
+  color: red;
+  margin-left: 90px;
+  font-size: 25px;
+  margin-right: 5px;
+}
+
+.ng-fa-icon {
+  padding-top: 2px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  cursor: pointer;
+}
+
+.cartItems {
+  font-size: 18px;
+  border: 1px solid rgb(197, 197, 197);
+  height: 110px;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-top: 2px;
+  margin-bottom: 3px;
+  display: flex;
+  justify-content: space-between;
+  word-break: break-word;
+}
+
+.imageInCart>img {
+  height: 150px;
+  width: 140px;
+  margin-right: 30px;
+  padding-bottom: 75px;
+}
+
+.itemDetails>p {
+  margin-bottom: 0px;
+}
+
+
+.quantityInput {
+  margin-top: 4px;
+  width: 50px;
+  border: 1px solid black;
+}
+
+
+#itemName {
+  font-weight: bold;
+}
+
+.cartCheckout {
+  font-size: 22px;
+  border: 1px solid rgb(197, 197, 197);
+  background-color: #d5dbe4;
+  color: #384870;
+  font-weight: bold;
+  height: 70px;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-top: 5px;
+  position: sticky;
+  bottom: 0;
+  top: 783px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  text-transform: capitalize;
+}
+
+.close {
+  color: white;
+}
+
+#selectQuantityButton {
+  padding: 3px 6px;
+}
+
+.emptyCart {
+  text-align: center;
+  height: 375px;
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bold;
+  font-size: 35px;
+  flex-direction: column;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.modal-body {
+  text-transform: capitalize;
+}
+
+#finalPriceInCart {
+  text-decoration: underline;
+}
+
+.notifyFinalPrice {
+  text-align: center;
+  font-weight: 900;
+  font-size: 25px;
+  color: #384870;
+}

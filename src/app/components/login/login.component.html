@@ -1,0 +1,25 @@
+<div class="login">
+
+  <p>Log In To Your Reatails R us Account</p>
+
+  <form #loginForm="ngForm" [formGroup]="loginFormGroup" (submit)="login()">
+    <input type="email" placeholder="Email" name="email" [formControl]="emailFormControl" required>
+    <br>
+    <span *ngIf="emailFormControl.errors?.['required'] && emailFormControl.touched">Invalid Email</span>
+    <br><br>
+    <input type="password" placeholder="Password" name="password" [formControl]="passwordFormControl" required>
+    <br>
+    <span *ngIf="passwordFormControl.errors?.['required'] && passwordFormControl.touched">Missing password</span>
+    <br><br>
+    <button class="btn btn-primary">Login</button>
+  </form>
+
+  <div class="registerRefernce">
+    <p>Don't Have An Account? Register Now</p>
+    <br>
+    <button class="btn btn-light" (click)="moveToRegisterPage()">Register Now</button>
+  </div>
+</div>
+<div class="footer">
+  <app-footer></app-footer>
+</div>
