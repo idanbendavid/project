@@ -127,3 +127,17 @@
   font-size: 25px;
   color: #384870;
 }
+
+
+@media all and (max-width: 650px) {
+  .cart {
+    width: 200px;
+    border: 1px solid black;
+    margin-right: 100px;
+  }
+
+  .imageInCart>img {
+    width: 50px;
+  }
+
+}

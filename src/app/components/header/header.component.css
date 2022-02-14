@@ -75,3 +75,38 @@ h3>.ng-fa-icon {
 .dropdownMenu {
   font-size: 18px;
 }
+
+@media all and (max-width:1600px) {
+  .header {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .navbar {
+    margin-left: 0px;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .navbar, .ng-fa-icon, .userActions>p, h3, h1 {
+    font-size: 23px;
+  }
+}
+
+@media all and (max-width: 700px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .headline {
+    margin-left: 20px;
+  }
+
+  .userActions {
+    margin-left: 0px;
+  }
+  .userActions>p {
+    display: none;
+  }
+}

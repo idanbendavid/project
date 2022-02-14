@@ -29,3 +29,9 @@
   width: 45px;
   border: 1px solid black;
 }
+
+@media all and (max-width: 650px){
+  .card{
+    width: 150px;
+  }
+}
