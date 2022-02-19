@@ -9,8 +9,9 @@ import { ICategory } from '../models/ICategory';
 export class CategoriesService {
 
   constructor(private http: HttpClient) { }
-  
+
   private categorySubject: Subject<number> = new Subject<number>();
+  private addNewCategorySubject: Subject<ICategory> = new Subject<ICategory>();
 
   setCategoryId(categoryId: number): void {
     this.categorySubject.next(categoryId);
@@ -27,5 +28,15 @@ export class CategoriesService {
   public addCategories(newCategory: ICategory): Observable<ICategory> {
     return this.http.post<ICategory>("http://localhost:8080/categories/", newCategory)
   }
+
+  setAdminCategoriesTable(newCategory: any): void {
+    this.addNewCategorySubject.next(newCategory);
+  }
+
+  getAdminCategoriesTable(): Observable<ICategory> {
+    return this.addNewCategorySubject.asObservable();
+  }
+
+
 
 }

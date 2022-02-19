@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 import { ICategory } from 'src/app/models/ICategory';
 import { IProducts } from 'src/app/models/IProducts';
 import { CategoriesService } from 'src/app/services/category.service';
@@ -21,9 +22,6 @@ export class AdminComponent implements OnInit {
 
   @ViewChild("productPriceRef", { static: false })
   productPriceRef!: ElementRef;
-
-  @ViewChild("productImageRef", { static: false })
-  productImageRef!: ElementRef;
 
   @ViewChild("productStockRef", { static: false })
   productStockRef!: ElementRef;
@@ -54,11 +52,22 @@ export class AdminComponent implements OnInit {
   @ViewChild("addCategoryRef", { static: false })
   addCategoryRef!: ElementRef;
 
-
-  constructor(public productsService: ProductsService, public categoriesService: CategoriesService, private toastr: ToastrService) { }
-
+  public productsSubscription: Subscription;
+  public addCategorySubscription: Subscription;
   public products: IProducts[] = [];
   public categories: ICategory[] = [];
+
+  constructor(public productsService: ProductsService, public categoriesService: CategoriesService, private toastr: ToastrService) {
+    this.productsSubscription = this.productsService.getAdminProductTable().subscribe(newProduct => { });
+
+    this.addCategorySubscription = this.categoriesService.getAdminCategoriesTable().subscribe(newCategory => {
+      console.log(newCategory);
+
+      newCategory.categoryId = this.categories.length;
+      newCategory.categoryName = this.addCategoryRef.nativeElement.value
+
+    })
+  }
 
 
   public addProductFormGroup = new FormGroup({});
@@ -116,7 +125,7 @@ export class AdminComponent implements OnInit {
     observable.subscribe(() => {
 
       for (let index = 0; index < this.products.length; index++) {
-        newProduct.productId = (this.products.length);
+        newProduct.productId = (this.products.length + 1);
       }
 
       for (let index = 0; index < this.categories.length; index++) {
@@ -126,13 +135,13 @@ export class AdminComponent implements OnInit {
       }
 
       this.products.push(newProduct);
+      this.productsService.setAdminProductTable(this.products);
     }, error => { this.toastr.error(error.error) })
 
 
     this.productNameRef.nativeElement.value = ""
     this.categoryNameRef.nativeElement.options.selectedIndex = 0;
     this.productPriceRef.nativeElement.value = ""
-    this.productImageRef.nativeElement.value = ""
     this.productStockRef.nativeElement.value = ""
 
   }
@@ -176,12 +185,18 @@ export class AdminComponent implements OnInit {
   public addCategory() {
     let observable = this.categoriesService.addCategories(this.addCategoryFromGroup.value)
     observable.subscribe((newCategory) => {
+
+      newCategory.categoryName = this.addCategoryNameFormControl.value;
+      newCategory.categoryId = this.categories.length+1;
+
       this.categories.push(newCategory);
+
+      this.categoriesService.setAdminCategoriesTable(this.categories);
+
     }, error => { this.toastr.error(error.error) })
 
     this.addCategoryRef.nativeElement.value = ""
 
-    this.getAllCategories();
   }
 
 
@@ -203,12 +218,12 @@ export class AdminComponent implements OnInit {
 
   public onEditFileUpload(event: any) {
     this.editProductImageFormControl.setValue(event,
-    { onlySelf: false, emitEvent: true, emitModelToViewChange: true, emitViewToModelChange: true });
+      { onlySelf: false, emitEvent: true, emitModelToViewChange: true, emitViewToModelChange: true });
   }
 
   public onFileUpload(event: any) {
     this.addProductImageFormControl.setValue(event,
-    { onlySelf: false, emitEvent: true, emitModelToViewChange: true, emitViewToModelChange: true });
+      { onlySelf: false, emitEvent: true, emitModelToViewChange: true, emitViewToModelChange: true });
   }
 
   public onEditClick(product: IProducts) {

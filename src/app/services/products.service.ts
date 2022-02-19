@@ -10,6 +10,8 @@ import { IProducts } from '../models/IProducts';
 
 export class ProductsService {
 
+  private productsSubject: Subject<IProducts> = new Subject<IProducts>();
+
   constructor(private http: HttpClient) { }
 
   public getProductsByCategoryId(categoryId: number): Observable<IProducts[]> {
@@ -19,6 +21,15 @@ export class ProductsService {
   public getAllProducts(): Observable<IProducts[]> {
     return this.http.get<IProducts[]>("http://localhost:8080/products")
   }
+
+  setAdminProductTable(products: any): void {
+    this.productsSubject.next(products);
+  }
+
+  getAdminProductTable(): Observable<IProducts> {
+    return this.productsSubject.asObservable();
+  }
+
 
   public addProducts(newProduct: IProducts): Observable<IProducts[]> {
     return this.http.post<IProducts[]>("http://localhost:8080/products/", newProduct);
