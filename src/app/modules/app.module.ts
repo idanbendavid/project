@@ -32,6 +32,7 @@ import { ProductsService } from '../services/products.service';
 import { UploadService } from '../services/upload.service';
 import { UsersService } from '../services/users.service';
 import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [CartService, CategoriesService, CityService, ItemsService, OrderService, ProductsService, UploadService, UsersService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true }

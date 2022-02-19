@@ -64,7 +64,7 @@
           <th>Units In Stock</th>
           <th>Edit Product</th>
         </tr>
-        <tr *ngFor="let product of products">
+        <tr *ngFor="let product of products | paginate: { itemsPerPage: 25, currentPage: p }">
           <td>{{product.productId}}</td>
           <td>{{product.name}}</td>
           <td>{{product.categoryName}}</td>
@@ -78,6 +78,9 @@
           </td>
         </tr>
       </table>
+    </div>
+    <div>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
   </div>
 </div>
@@ -98,10 +101,13 @@
         <th>Category Id</th>
         <th>Category Name</th>
       </tr>
-      <tr *ngFor="let category of categories">
+      <tr *ngFor="let category of categories | paginate: { itemsPerPage: 15, currentPage: p }">
         <td>{{category.categoryId}}</td>
         <td>{{category.categoryName}}</td>
       </tr>
     </table>
+  </div>
+  <div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>

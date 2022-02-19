@@ -70,6 +70,10 @@ export class AdminComponent implements OnInit {
   }
 
 
+  p: number = 1;
+  // count: number = 25;
+
+
   public addProductFormGroup = new FormGroup({});
   public addProductNameFormControl = new FormControl("");
   public addProductCategoryFormControl = new FormControl();
