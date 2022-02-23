@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, PatternValidator, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CartService } from 'src/app/services/cart.service';
 import { CityService } from 'src/app/services/city.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -12,7 +13,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(public usersService: UsersService, private router: Router, private toastr: ToastrService, public cityService: CityService) { }
+  constructor(public usersService: UsersService, private router: Router, private toastr: ToastrService, public cityService: CityService, public cartService: CartService) { }
 
   public isShown = false;
 
@@ -26,6 +27,19 @@ export class RegisterComponent implements OnInit {
   public cityFormControl = new FormControl("");
   public streetFormControl = new FormControl("");
 
+
+  public addCartToUser() {
+    let newCart = {};
+
+    let observable = this.cartService.addCartToUser(newCart);
+    console.log(this.usersService.userId);
+    console.log(this.usersService.firstName);
+    console.log(this.usersService.userType);
+
+    observable.subscribe((response) => {
+
+    }, error => { this.toastr.error(error.error) })
+  }
 
   onContinueClicked() {
     if (this.globalIdFormControl.value === 0 || this.emailFormControl.value === "" || this.passwordFormControl.value === "") {
@@ -48,9 +62,18 @@ export class RegisterComponent implements OnInit {
 
       observable.subscribe(successfulServerRequestData => {
 
-        if (successfulServerRequestData) {
-          this.toastr.success("please log in to activate your account");
-          this.router.navigate(["/login"]);
+        if (successfulServerRequestData.token) {
+
+          localStorage.setItem("token", successfulServerRequestData.token);
+
+          this.usersService.userType = successfulServerRequestData.newUser.userType;
+          this.usersService.firstName = successfulServerRequestData.newUser.firstName;
+          this.usersService.token = successfulServerRequestData.token;
+          this.usersService.userId = successfulServerRequestData.registerUser.insertId;
+          this.addCartToUser();
+
+          this.router.navigate(["/products"]);
+
         }
 
       }, serverErrorResponse => {

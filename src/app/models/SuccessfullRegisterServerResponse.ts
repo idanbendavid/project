@@ -1,7 +1,13 @@
-export class SuccessfullRegisterServerResponse{
+export class SuccessfullRegisterServerResponse {
   public constructor(
-      public userType?:string,
-      public firstName?: string
-  ){}
+    public registerUser: {
+      insertId: number
+    },
+    public newUser: {
+      userType: string,
+      firstName: string
+    },
+    public token?: string
+  ) { }
 
 }
