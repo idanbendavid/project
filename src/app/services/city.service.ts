@@ -9,7 +9,7 @@ export class CityService {
 
   constructor(private http: HttpClient) { }
 
-  public cities: ICity[] = [{ name: "Tel Aviv" }, { name: "Jerusalem" }, { name: "Haifa" }, { name: "Bat Yam" },{ name: "Beer sheva" },
+  public cities: ICity[] = [{ name: "Tel Aviv" }, { name: "Jerusalem" }, { name: "Haifa" }, { name: "Bat Yam" },{ name: "Beer Sheva" },
   { name: "Rishon Lezion" }, { name: "Netanya" }, { name: "Acre" }, { name: "Eilat" }, { name: "Natzeret" }];
 
 }

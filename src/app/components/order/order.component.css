@@ -33,6 +33,7 @@
   box-sizing: border-box;
   box-shadow: 10px 11px 8px #888888;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 
@@ -84,17 +85,8 @@ button {
   margin-right: 65px;
 }
 
-#expirationDateLabel {
-  margin-right: 37px;
-}
-
-#cvcLable {
-  margin-right: 116px;
-}
-
 .order-table {
   height: 530px;
-  width: 85%;
   margin-left: 100px;
   font-size: 20px;
   text-align: center;
@@ -129,7 +121,9 @@ th {
 .order-table-row {
   height: 100px;
   border-bottom: 1px solid;
+  text-transform: capitalize;
 }
+
 
 #order-data-item-name {
   text-align: left;
@@ -153,6 +147,8 @@ th {
 
 #orderDetailsH4{
   text-decoration: underline;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   margin-top: 0px;
 }
+
+

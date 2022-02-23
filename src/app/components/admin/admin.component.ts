@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
@@ -12,7 +12,7 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, OnDestroy {
 
   @ViewChild("productNameRef", { static: false })
   productNameRef!: ElementRef;
@@ -191,7 +191,7 @@ export class AdminComponent implements OnInit {
     observable.subscribe((newCategory) => {
 
       newCategory.categoryName = this.addCategoryNameFormControl.value;
-      newCategory.categoryId = this.categories.length+1;
+      newCategory.categoryId = this.categories.length + 1;
 
       this.categories.push(newCategory);
 
@@ -276,4 +276,8 @@ export class AdminComponent implements OnInit {
     })
   }
 
+  ngOnDestroy(): void {
+    this.productsSubscription.unsubscribe();
+    this.addCategorySubscription.unsubscribe();
+  }
 }

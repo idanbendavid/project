@@ -24,7 +24,9 @@ export class OrderComponent implements OnInit {
   }
 
   public creditCardRegex = "^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})$";
+
   public searchProductInReceipt: string = "";
+
   public user: IUser = {
     userId: 0,
     globalId: 0,
@@ -154,11 +156,11 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.globalIdFormControl = new FormControl(0, [Validators.required, Validators.minLength(9), Validators.maxLength(9)]);
+    this.globalIdFormControl = new FormControl(0, Validators.compose([Validators.required, Validators.minLength(9), Validators.maxLength(9)]));
     this.cityFormControl = new FormControl("", Validators.required);
     this.streetFormControl = new FormControl("", Validators.required);
-    this.creditCardFormControl = new FormControl(0, [Validators.required, Validators.minLength(16), Validators.maxLength(16),
-    Validators.pattern(this.creditCardRegex)]);
+    this.creditCardFormControl = new FormControl(0, Validators.compose([Validators.required, Validators.minLength(16), Validators.maxLength(16),
+    Validators.pattern(this.creditCardRegex)]));
     this.shippingDateFormControl = new FormControl("", Validators.required);
 
     this.getDetailsOfUser();

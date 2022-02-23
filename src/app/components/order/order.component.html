@@ -13,6 +13,7 @@
         <table class="order-table">
           <tr class="table-header-row">
             <th id="order-data-product-header">Product</th>
+            <th>Category</th>
             <th>Price</th>
             <th>Quantity</th>
             <th>Total</th>
@@ -20,6 +21,7 @@
           <tr class="order-table-row" *ngFor="let item of this.cartService.cart.lineItems">
             <td [innerHtml]="item.name | highlight: searchProductInReceipt" id="order-data-item-name">{{item.name}}
             </td>
+            <td>{{item.categoryName}}</td>
             <td>{{item.pricePerUnit}}$</td>
             <td>{{item.quantity}}</td>
             <td>{{item.finalPrice}}$</td>
@@ -37,8 +39,9 @@
         <h3>shipping details:</h3>
         <form class="shipping-details-form">
           <label id="orderCityLabel">City</label>
-          <select [(ngModel)]="this.user.city" id="cityOrder" [formControl]="cityFormControl" required #citySelectRef>
-            <option selected>Choose A City</option>
+          <select id="cityOrder" [formControl]="cityFormControl" required #citySelectRef>
+            <option *ngIf="this.user.city" selected>{{this.user.city}}</option>
+            <option *ngIf="!this.user.city" selected>Choose A City</option>
             <option *ngFor="let city of this.cityService.cities">{{city.name}}</option>
           </select>
           <br><br>
@@ -56,19 +59,26 @@
       <div class="payment-section">
         <h3>payment method:</h3>
         <form class="payment-form">
+
           <label id="PaymentIdLabel">Id</label>
           <input type="number" placeholder="id" minlength="9" maxlength="9" [(ngModel)]="this.user.globalId"
             [formControl]="globalIdFormControl" #OrderIdRef>
+
           <br><br>
+
           <label id="creditCardLabel">Credit Card</label>
           <input type="number" placeholder="Credit Card" [formControl]="creditCardFormControl" required maxlength="16"
             minlength="16" #creditCardRef>
           <br>
+
           <span
-            *ngIf="creditCardFormControl.errors?.['minlength(16)'] && creditCardFormControl.errors?.['maxlength(16)']">Invalid
+            *ngIf="creditCardFormControl.errors?.['minlength(16)'] || creditCardFormControl.errors?.['maxlength(16)']">Invalid
             Credit Card</span>
+
           <br>
+
           <button class="btn btn-primary" (click)="order()">ORDER</button>
+
         </form>
       </div>
     </div>

@@ -63,7 +63,7 @@ export class SingleProductComponent implements OnInit, OnDestroy {
     let observable = this.itemsService.addItemToCart(addedItem);
     observable.subscribe((response) => {
       if (response) {
-        
+
         if (addedItem.productId === product.productId) {
           product.quantity = addedItem.quantity;
           product.finalPrice = addedItem.finalPrice;
