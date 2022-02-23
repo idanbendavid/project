@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   public isShown = false;
 
   public registerFormGroup = new FormGroup({});
-  public globalIdFormControl = new FormControl("");
+  public globalIdFormControl = new FormControl(0);
   public emailFormControl = new FormControl("", Validators.email);
   public passwordFormControl = new FormControl("");
   public validatePasswordFormControl = new FormControl("");
@@ -85,9 +85,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
 
-    this.globalIdFormControl = new FormControl("", [Validators.required, Validators.minLength(9), Validators.maxLength(9)]);
-    this.emailFormControl = new FormControl("", [Validators.required,
-    Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g), Validators.email]);
+    this.globalIdFormControl = new FormControl(0,Validators.compose([Validators.required, Validators.minLength(9), Validators.maxLength(9)]));
+    this.emailFormControl = new FormControl("", Validators.compose([Validators.required,
+    Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g), Validators.email]));
     this.passwordFormControl = new FormControl("", Validators.required);
     this.firstNameFormControl = new FormControl("", Validators.required);
     this.lastNameFormControl = new FormControl("", Validators.required);

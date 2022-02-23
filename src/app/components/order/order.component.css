@@ -95,7 +95,7 @@ button {
 .order-table {
   height: 530px;
   width: 85%;
-  margin-left: 65px;
+  margin-left: 100px;
   font-size: 20px;
   text-align: center;
   overflow-y: auto;
@@ -153,6 +153,6 @@ th {
 
 #orderDetailsH4{
   text-decoration: underline;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   margin-top: 0px;
 }

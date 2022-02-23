@@ -11,7 +11,7 @@
         <input type="number" [formControl]="globalIdFormControl" placeholder="ID" minlength="9" maxlength="9"
           id="globalIdField" required>
         <br>
-        <span *ngIf="globalIdFormControl.errors?.['required'] && globalIdFormControl.touched && globalIdFormControl">Invalid ID</span>
+        <span *ngIf="globalIdFormControl.errors?.['required'] || globalIdFormControl.touched || globalIdFormControl.errors?.['minlength(9)'] && globalIdFormControl.errors?.['maxlength(9)']">Invalid ID</span>
         <br>
 
         <label>Email</label>
@@ -20,7 +20,7 @@
           [formControl]="emailFormControl" id="emailField" required>
         <br>
 
-        <span *ngIf="emailFormControl.errors?.['required'] && emailFormControl.errors?.['pattern'] && emailFormControl.touched">Invalid Email</span>
+        <span *ngIf="emailFormControl.errors?.['required'] &&  emailFormControl.errors?.['pattern'] || emailFormControl.touched">Invalid Email</span>
         <br>
 
         <label>Password</label>
