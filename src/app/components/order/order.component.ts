@@ -23,7 +23,7 @@ export class OrderComponent implements OnInit {
     private router: Router, public usersService: UsersService) {
   }
 
-  public creditCardRegex = "^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13})$";
+  public creditCardRegex = "\b4[0-9]{12}(?:[0-9]{3})?\b";
 
   public searchProductInReceipt: string = "";
 
@@ -62,9 +62,26 @@ export class OrderComponent implements OnInit {
   public globalIdFormControl = new FormControl(0);
   public cityFormControl = new FormControl("");
   public streetFormControl = new FormControl("");
-  public creditCardFormControl = new FormControl(0);
+  public creditCardFormControl = new FormControl("");
   public shippingDateFormControl = new FormControl("");
 
+  private getCreditCardLastFourDigits() {
+    let creditCard = this.creditCardFormControl.value;
+
+    if (creditCard.length < 13) {
+      this.toastr.error("Credit Card field Must Contain At Least 13 Characters");
+      return false;
+    }
+
+    if (creditCard.length > 16) {
+      this.toastr.error("Credit Card field Must Contain At Most 16 Characters");
+      return false;
+    }
+
+    let lastFourDigits = creditCard.substr(-4);
+
+    return lastFourDigits;
+  }
 
   public getDetailsOfUser() {
     let observable = this.usersService.getDataOfUser()
@@ -123,7 +140,7 @@ export class OrderComponent implements OnInit {
       globalId: this.globalIdFormControl.value,
       cartId: this.cartService.cart.cartId,
       finalPrice: this.cartService.finalPrice.value,
-      creditCard: this.creditCardFormControl.value,
+      creditCard: this.getCreditCardLastFourDigits(),
       shippingCity: this.cityFormControl.value,
       shippingStreet: this.streetFormControl.value,
       shippingDate: this.shippingDateFormControl.value,
@@ -139,7 +156,6 @@ export class OrderComponent implements OnInit {
         this.clearFormInputData();
 
         this.printRecieptAsPdf();
-
 
         setTimeout(() => {
           this.toastr.success("Thanks For Shopping At Retails R Us Hoping To See You Again Soon");
@@ -159,7 +175,7 @@ export class OrderComponent implements OnInit {
     this.globalIdFormControl = new FormControl(0, Validators.compose([Validators.required, Validators.minLength(9), Validators.maxLength(9)]));
     this.cityFormControl = new FormControl("", Validators.required);
     this.streetFormControl = new FormControl("", Validators.required);
-    this.creditCardFormControl = new FormControl(0, Validators.compose([Validators.required, Validators.minLength(16), Validators.maxLength(16),
+    this.creditCardFormControl = new FormControl("", Validators.compose([Validators.required, Validators.minLength(13), Validators.maxLength(16),
     Validators.pattern(this.creditCardRegex)]));
     this.shippingDateFormControl = new FormControl("", Validators.required);
 

@@ -96,7 +96,7 @@ button {
 }
 
 th {
-  width: 213px;
+  width: 196px;
 }
 
 .table-header-row {
@@ -119,7 +119,7 @@ th {
 }
 
 .order-table-row {
-  height: 100px;
+  height: 80px;
   border-bottom: 1px solid;
   text-transform: capitalize;
 }
@@ -149,6 +149,7 @@ th {
   text-decoration: underline;
   margin-bottom: 5px;
   margin-top: 0px;
+  text-align: center;
 }
 
 

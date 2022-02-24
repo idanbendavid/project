@@ -64,12 +64,12 @@
           <th>Units In Stock</th>
           <th>Edit Product</th>
         </tr>
-        <tr *ngFor="let product of products | paginate: { itemsPerPage: 25, currentPage: p }">
+        <tr *ngFor="let product of products | paginate: { itemsPerPage: 10, currentPage: p }">
           <td>{{product.productId}}</td>
           <td>{{product.name}}</td>
           <td>{{product.categoryName}}</td>
           <td>{{product.pricePerUnit}}</td>
-          <td>{{product.image}}</td>
+          <td><img src="{{product.image}}" alt="image of{{product.name}}"></td>
           <td>{{product.stock}}</td>
           <td>
             <span (click)="onEditClick(product)">
