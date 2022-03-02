@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class UploadService {
 
 
-  SERVER_URL: string = "http://localhost:8080/files/";
+  SERVER_URL: string = "files/";
   constructor(private httpClient: HttpClient) { }
 
   public upload(formData: any) {

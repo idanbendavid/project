@@ -15,11 +15,11 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   public getProductsByCategoryId(categoryId: number): Observable<IProducts[]> {
-    return this.http.get<IProducts[]>(`http://localhost:8080/categories/${categoryId}`)
+    return this.http.get<IProducts[]>(`categories/${categoryId}`)
   }
 
   public getAllProducts(): Observable<IProducts[]> {
-    return this.http.get<IProducts[]>("http://localhost:8080/products")
+    return this.http.get<IProducts[]>("products")
   }
 
   setAdminProductTable(products: any): void {
@@ -32,10 +32,10 @@ export class ProductsService {
 
 
   public addProducts(newProduct: IProducts): Observable<IProducts[]> {
-    return this.http.post<IProducts[]>("http://localhost:8080/products/", newProduct);
+    return this.http.post<IProducts[]>("products/", newProduct);
   }
 
   public editProducts(editedProduct: IProducts): Observable<IProducts[]> {
-    return this.http.put<IProducts[]>("http://localhost:8080/products/", editedProduct);
+    return this.http.put<IProducts[]>("products/", editedProduct);
   }
 }

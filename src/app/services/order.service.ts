@@ -12,7 +12,7 @@ export class OrderService {
 
 
   public order(newOrder: IOrder): Observable<IOrder> {
-    return this.http.post<IOrder>(`http://localhost:8080/orders/`,newOrder )
+    return this.http.post<IOrder>(`orders/`,newOrder )
   }
 
 

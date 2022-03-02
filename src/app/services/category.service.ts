@@ -22,11 +22,11 @@ export class CategoriesService {
   }
 
   public getAllCategories(): Observable<ICategory[]> {
-    return this.http.get<ICategory[]>("http://localhost:8080/categories")
+    return this.http.get<ICategory[]>("categories")
   }
 
   public addCategories(newCategory: ICategory): Observable<ICategory> {
-    return this.http.post<ICategory>("http://localhost:8080/categories/", newCategory)
+    return this.http.post<ICategory>("categories/", newCategory)
   }
 
   setAdminCategoriesTable(newCategory: any): void {

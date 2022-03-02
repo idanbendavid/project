@@ -49,6 +49,10 @@ export class LayoutComponent implements OnInit {
     if (this.token) {
       this.verifyToken()
     }
+    else {
+      this.router.navigate(["/products"]);
+      this.toastr.info("please login in order to complete your purchase");
+    }
   }
 
 }

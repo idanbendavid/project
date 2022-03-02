@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "node app",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -37,7 +37,7 @@
     "@angular/compiler-cli": "^13.0.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.0.3",
+    "@angular-devkit/build-angular": "^13.2.5",
     "@angular/cli": "^13.2.4",
     "@angular/compiler-cli": "^13.0.3",
     "@types/jasmine": "~3.10.0",

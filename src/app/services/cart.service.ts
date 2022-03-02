@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { ICart } from '../models/ICart';
-import { IProducts } from '../models/IProducts';
 
 @Injectable({
   providedIn: 'root'
@@ -26,13 +25,12 @@ export class CartService {
   }
 
   public getCartOfUser(): Observable<ICart> {
-    return this.http.get<ICart>(`http://localhost:8080/carts/`)
+    return this.http.get<ICart>(`carts/`)
   }
 
   public addCartToUser(newCart: {}): Observable<any> {
-    return this.http.post<any>(`http://localhost:8080/carts/`, newCart)
+    return this.http.post<any>(`carts/`, newCart)
 
   }
-
 
 }

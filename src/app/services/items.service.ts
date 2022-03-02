@@ -16,7 +16,7 @@ export class ItemsService {
 
   // add item to cart
   public addItemToCart(adddedItem: any): Observable<{}> {
-    return this.http.post<{}>(`http://localhost:8080/items/`, adddedItem)
+    return this.http.post<{}>(`items/`, adddedItem)
   }
 
   setAddItemSubject(adddedItem: any): void {
@@ -30,13 +30,13 @@ export class ItemsService {
 
   //  update item quantity
   public updateItemQuantity(updatedItem: any): Observable<IProducts> {
-    return this.http.put<IProducts>(`http://localhost:8080/items/`, updatedItem)
+    return this.http.put<IProducts>(`items/`, updatedItem)
   }
 
 
   //  delete all items
   public deleteAllItemsFromCart(cartId: number): Observable<IProducts[]> {
-    return this.http.delete<IProducts[]>(`http://localhost:8080/items/${cartId}`)
+    return this.http.delete<IProducts[]>(`items/${cartId}`)
   }
 
   setDeleteCartItems(cartId: number): void {
@@ -51,7 +51,7 @@ export class ItemsService {
 
   // delete one item
   public deleteItemFromCartByCartIdAndProductId(cartId: number, productId: number): Observable<IProducts[]> {
-    return this.http.delete<IProducts[]>(`http://localhost:8080/items/${cartId}/${productId}`)
+    return this.http.delete<IProducts[]>(`items/${cartId}/${productId}`)
   }
 
   setDeleteOneItemSubject(productId: number): void {

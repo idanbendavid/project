@@ -22,19 +22,19 @@ export class UsersService {
   constructor(private http: HttpClient) {}
 
   public getDataOfUser(): Observable<IUser[]>{
-    return this.http.get<IUser[]>("http://localhost:8080/users")
+    return this.http.get<IUser[]>("users")
   }
 
   public login(userLoginDetails: UserLoginDetails): Observable<SuccessfulLoginServerResponse> {
-    return this.http.post<SuccessfulLoginServerResponse>("http://localhost:8080/users/login", userLoginDetails);
+    return this.http.post<SuccessfulLoginServerResponse>("users/login", userLoginDetails);
   }
 
   public createUser(userLoginDetails: UserLoginDetails): Observable<SuccessfullRegisterServerResponse> {
-      return this.http.post<SuccessfullRegisterServerResponse>("http://localhost:8080/users/", userLoginDetails);
+      return this.http.post<SuccessfullRegisterServerResponse>("users/", userLoginDetails);
   }
 
   public verifyToken(): Observable<SuccessfulTokenVerificationServerResponse> {
-    return this.http.get<SuccessfulTokenVerificationServerResponse>("http://localhost:8080/users/verify_token");
+    return this.http.get<SuccessfulTokenVerificationServerResponse>("users/verify_token");
 }
 
 }
