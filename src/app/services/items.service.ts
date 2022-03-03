@@ -16,7 +16,7 @@ export class ItemsService {
 
   // add item to cart
   public addItemToCart(adddedItem: any): Observable<{}> {
-    return this.http.post<{}>(`http://localhost:8080/items/`, adddedItem)
+    return this.http.post<{}>(`items/`, adddedItem)
   }
 
   setAddItemSubject(adddedItem: any): void {
