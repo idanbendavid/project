@@ -7,9 +7,9 @@
   <div class="divisions">
     <div class="row">
       <div class="col">
-        <div ngbDropdown class="d-inline-block">
+        <div *ngIf="usersService.firstName" ngbDropdown class="d-inline-block">
           <h3 id="dropdownBasic1" ngbDropdownToggle>Categories</h3>
-          <div *ngIf="usersService.firstName" ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdownMenu">
+          <div  ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdownMenu">
             <button ngbDropdownItem (click)="moveToSpecificCategory(0)">All Products</button>
             <button ngbDropdownItem (click)="moveToSpecificCategory(category.categoryId)"
               *ngFor="let category of categories">{{category.categoryName}}</button>

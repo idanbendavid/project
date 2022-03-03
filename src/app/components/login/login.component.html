@@ -2,7 +2,7 @@
 
   <p>Log In To Your Reatails R us Account</p>
 
-  <form #loginForm="ngForm" [formGroup]="loginFormGroup" (submit)="login()">
+  <form class="form-group" #loginForm="ngForm" [formGroup]="loginFormGroup" (submit)="login()">
     <input type="email" placeholder="Email" name="email" [formControl]="emailFormControl" required>
     <br>
     <span *ngIf="emailFormControl.errors?.['required'] && emailFormControl.touched">Invalid Email</span>

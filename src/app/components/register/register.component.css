@@ -76,3 +76,99 @@ input, select, .btn .btn-success {
   height: 100px;
   top: 840px;
 }
+
+@media all and (max-width: 1000px) {
+  .registerPage {
+    margin: 14px 100px 0px 100px;
+  }
+}
+
+@media all and (max-width: 845px) {
+  .registerHeadline {
+    padding-top: 110px;
+  }
+
+  .registerPage {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100%;
+  }
+
+  .registerPartTwo {
+    margin-top: 20px;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  h3 {
+    margin-bottom: 15px;
+  }
+
+  span {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .vl {
+    display: none;
+  }
+}
+
+@media all and (max-width:500px) {
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  span {
+    margin: 5px 0px
+  }
+
+  #globalIdField, #streetField, #emailField, #validateInput, label {
+    margin-left: 0px;
+  }
+
+  #globalIdField {
+    width: 285px;
+    height: 30px;
+  }
+
+  input {
+    margin-top: 0px;
+  }
+
+  select {
+    width: 285px;
+    height: 30px;
+    margin-left: 0px;
+  }
+}
+
+@media all and (max-width: 450px){
+  .registerPartOne {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .registerPartTwo {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  #globalIdField, #streetField, #emailField, #validateInput, #passwordInput, button, form>input, select {
+    width: 150px;
+  }
+}
