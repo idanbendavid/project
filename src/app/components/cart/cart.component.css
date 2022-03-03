@@ -129,15 +129,33 @@
 }
 
 
-@media all and (max-width: 650px) {
+@media all and (max-width: 1000px) {
+  .modal-content {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
   .cart {
-    width: 200px;
+    width: 250px;
     border: 1px solid black;
-    margin-right: 100px;
+    height: 765px;
+    margin-left: 0px;
+
   }
 
   .imageInCart>img {
     width: 50px;
   }
+}
 
+@media all and (max-width: 565px){
+
+  .imageInCart>img {
+    display: none;
+  }
+
+  .cart {
+    width: 200px;
+  }
 }

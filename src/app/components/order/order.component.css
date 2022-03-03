@@ -31,7 +31,6 @@
   margin-top: 15px;
   height: 28vw;
   box-sizing: border-box;
-  box-shadow: 10px 11px 8px #888888;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -110,6 +109,8 @@ th {
   text-transform: capitalize;
   position: sticky;
   z-index: 1;
+  margin-top: 20px;
+
 }
 
 .order-final-price > h3 {
@@ -152,4 +153,36 @@ th {
   text-align: center;
 }
 
+@media all and (max-width: 900px){
+  .search-product-in-receipt{
+    display: none;
+  }
 
+  .order-final-price{
+    margin-top: 20px;
+  }
+
+  .order-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-top: 10px;
+  }
+  .order-table {
+    margin-left: 0px;
+  }
+}
+
+@media all and (max-width: 700px){
+  #tableHeadCategory, #tableHeadPrice, #tableDataPrice, #tableDataCategory {
+    display: none;
+  }
+
+  #creditCardLabel, #PaymentIdLabel, #orderShippingDateLabel, #orderLabelStreet, #orderCityLabel{
+    display: inline-block;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+}

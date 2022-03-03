@@ -13,18 +13,18 @@
         <table class="order-table">
           <tr class="table-header-row">
             <th id="order-data-product-header">Product</th>
-            <th>category</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
+            <th id="tableHeadCategory">category</th>
+            <th id="tableHeadPrice">Price</th>
+            <th id="tableHeadQuantity">Quantity</th>
+            <th id="tableHeadTotalPrice">Total price</th>
           </tr>
           <tr class="order-table-row" *ngFor="let item of this.cartService.cart.lineItems">
             <td [innerHtml]="item.name | highlight: searchProductInReceipt" id="order-data-item-name">{{item.name}}
             </td>
-            <td>{{item.categoryName}}</td>
-            <td>{{item.pricePerUnit}}$</td>
-            <td>{{item.quantity}}</td>
-            <td>{{item.finalPrice}}$</td>
+            <td id="tableDataCategory">{{item.categoryName}}</td>
+            <td id="tableDataPrice">{{item.pricePerUnit}}$</td>
+            <td id="tableDataQuantity">{{item.quantity}}</td>
+            <td id="tableDataTotalPrice">{{item.finalPrice}}$</td>
           </tr>
         </table>
         <div class="order-final-price">

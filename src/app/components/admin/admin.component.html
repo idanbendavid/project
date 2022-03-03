@@ -60,7 +60,7 @@
           <th>Name</th>
           <th>Category Name</th>
           <th>Price Per Unit</th>
-          <th>Image</th>
+          <th id="tableHeadImageAdmin">Image</th>
           <th>Units In Stock</th>
           <th>Edit Product</th>
         </tr>
@@ -69,7 +69,7 @@
           <td>{{product.name}}</td>
           <td>{{product.categoryName}}</td>
           <td>{{product.pricePerUnit}}</td>
-          <td><img src="{{product.image}}" alt="image of{{product.name}}"></td>
+          <td id="tableDataImageAdmin"><img src="{{product.image}}" alt="image of{{product.name}}"></td>
           <td>{{product.stock}}</td>
           <td>
             <span (click)="onEditClick(product)">

@@ -89,7 +89,7 @@ h3>.ng-fa-icon {
 
 @media all and (max-width: 1000px) {
   .navbar, .ng-fa-icon, .userActions>p, h3, h1 {
-    font-size: 23px;
+    font-size: 18px;
   }
 }
 

@@ -139,3 +139,56 @@ td>img {
   width: 50px;
   height: 50px;
 }
+
+@media all and (max-width: 900px) {
+  .addProductDiv, .editProductForm {
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+    align-items: center;
+  }
+
+  form>input, select {
+    display: flex;
+    flex-flow: column;
+    margin-top: 10px;
+  }
+
+  summary {
+    margin-left: 300px;
+  }
+
+  form>button {
+    margin-left: 65px;
+    margin-top: 10px;
+  }
+
+  app-file-upload {
+    margin-top: 10px;
+  }
+
+  .addCategory {
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  .addCategoryForm > button {
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+
+  h4 {
+    margin-bottom: 10px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  #tableHeadImageAdmin, #tableDataImageAdmin {
+    display: none;
+  }
+  summary {
+    margin-left: 200px;
+  }
+
+}
+

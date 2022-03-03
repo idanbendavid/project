@@ -32,6 +32,12 @@
 
 @media all and (max-width: 650px){
   .card{
-    width: 150px;
+    width: 250px;
+  }
+}
+
+@media all and (max-width: 565px){
+  .card{
+    width: 170px;
   }
 }

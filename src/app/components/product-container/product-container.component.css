@@ -33,3 +33,52 @@ aside {
   padding-left: 15px;
 }
 
+@media all and (max-width: 1000px){
+  .searchInput {
+    left: 300px;
+  }
+
+  .products-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    overflow-x: hidden;
+    justify-content: start;
+    margin-left: 250px;
+  }
+}
+
+@media all and (max-width: 900px){
+  .products-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    justify-content: start;
+    margin-left: 300px;
+  }
+
+}
+
+@media all and (max-width: 765px){
+  .products-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    overflow-x: hidden;
+    justify-content: start;
+    margin-left: 300px;
+  }
+}
+
+@media all and (max-width: 600px){
+  .searchInput {
+    display: none;
+  }
+
+  .products-container{
+    top: 130px;
+    margin-left: 250px;
+  }
+}
