@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { IProducts } from 'src/app/models/IProducts';
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import { CategoriesService } from 'src/app/services/category.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -45,7 +46,6 @@ export class ProductContainerComponent implements OnInit {
       this.products.sort((a: IProducts, b: IProducts) => a.name.localeCompare(b.name))
     }, error => { this.toastr.error(error.error) })
   }
-
 
   ngOnInit(): void {
     this.getAllProducts();

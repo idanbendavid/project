@@ -161,6 +161,10 @@ export class OrderComponent implements OnInit {
           this.toastr.success("Thanks For Shopping At Retails R Us Hoping To See You Again Soon");
           localStorage.removeItem("token");
           this.router.navigate(["/login"]);
+          this.usersService.firstName = "";
+          this.usersService.userType = "";
+          this.usersService.token = "";
+          this.usersService.userId = 0;
         }, 3000);
 
 

@@ -190,5 +190,19 @@ td>img {
     margin-left: 200px;
   }
 
+  table {
+    word-break: break-word;
+    font-size: 12px;
+    margin: 30px 30px 20px 30px
+  }
+
+  select {
+    width: 203px;
+  }
 }
 
+@media all and (max-width: 400px){
+  summary{
+    margin-left: 50px;
+  }
+}

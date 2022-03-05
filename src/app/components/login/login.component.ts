@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   public moveToRegisterPage() {
     this.router.navigate(["/register"]);
   }
-  
+
 
   public login(): void {
     if (!this.emailFormControl.value || !this.passwordFormControl.value) {
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
 
         if (successfulServerRequestData.userType === "customer") {
           this.toastr.success("Welcome " + successfulServerRequestData.firstName);
-          this.router.navigate(["/products"]);
+          this.router.navigate(["/ourProducts"]);
         }
 
         if (successfulServerRequestData.userType === "admin") {

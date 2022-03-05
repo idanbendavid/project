@@ -76,6 +76,7 @@ h3>.ng-fa-icon {
   font-size: 18px;
 }
 
+
 @media all and (max-width:1600px) {
   .header {
     display: flex;
@@ -96,18 +97,28 @@ h3>.ng-fa-icon {
 @media all and (max-width: 700px) {
   .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 
   .headline {
-    margin-left: 30px;
+    margin-left: 35px;
+  }
+
+  .divisions {
+    display: none;
   }
 
   .userActions {
     margin-right: 20px;
   }
+
   .userActions>p {
     display: none;
   }
 }
 
+@media all and (max-width: 600px) {
+  .header {
+    height: 80px;
+  }
+}

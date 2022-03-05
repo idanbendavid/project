@@ -30,7 +30,7 @@ export class LayoutComponent implements OnInit {
       this.usersService.userId = successfulServerRequestData.userId;
 
       if (successfulServerRequestData.userType == "customer") {
-        this.router.navigate(["/products"]);
+        this.router.navigate(["/ourProducts"]);
       }
 
       if (successfulServerRequestData.userType === "admin") {
@@ -50,7 +50,7 @@ export class LayoutComponent implements OnInit {
       this.verifyToken()
     }
     else {
-      this.router.navigate(["/products"]);
+      this.router.navigate(["/ourProducts"]);
       this.toastr.info("please login in order to complete your purchase");
     }
   }

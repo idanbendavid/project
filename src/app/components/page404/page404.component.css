@@ -7,3 +7,9 @@ p{
 button {
   margin-left: 20px;
 }
+
+@media all and (max-width: 430px){
+  button{
+    margin-bottom: 10px;
+  }
+}

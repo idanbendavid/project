@@ -72,7 +72,7 @@ export class RegisterComponent implements OnInit {
           this.usersService.userId = successfulServerRequestData.registerUser.insertId;
           this.addCartToUser();
 
-          this.router.navigate(["/products"]);
+          this.router.navigate(["/ourProducts"]);
 
         }
 

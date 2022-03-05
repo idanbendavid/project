@@ -10,12 +10,12 @@ import { RegisterComponent } from '../components/register/register.component';
 import { AdminGuard } from '../guard/admin.guard';
 
 const routes: Routes = [
-  { path: "products", component: ProductContainerComponent },
+  { path: "ourProducts", component: ProductContainerComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "myorder", component: OrderComponent },
   { path: "admin", canActivate: [AdminGuard], component: AdminComponent },
-  { path: "", redirectTo: "products", pathMatch: "full" },
+  { path: "", redirectTo: "ourProducts", pathMatch: "full" },
   { path: "**", component: Page404Component }
 ];
 

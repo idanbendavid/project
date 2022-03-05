@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faTrashAlt, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faDumpster } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
@@ -17,7 +17,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class CartComponent implements OnInit, OnDestroy {
 
   public faTrashAlt = faTrashAlt;
-  public faMinusCircle = faMinusCircle;
+  public faDupmster = faDumpster;
   public quantityMinValue: number = 1;
   public totalPrice: any | number = 0;
   public deleteItemSubscription: Subscription;

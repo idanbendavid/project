@@ -54,4 +54,14 @@ span {
   form > input {
     margin-top: 20px;
   }
+
+  .login > p {
+    padding-top: 100px;
+  }
+}
+
+@media all and (max-width: 600px){
+  .footer{
+    display: none;
+  }
 }

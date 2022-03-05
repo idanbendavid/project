@@ -5,7 +5,6 @@ import { LayoutComponent } from '../components/layout/layout.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { AdminModule } from './admin.module';
 import { RoutingModule } from './routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
@@ -31,7 +30,7 @@ import { OrderService } from '../services/order.service';
 import { ProductsService } from '../services/products.service';
 import { UploadService } from '../services/upload.service';
 import { UsersService } from '../services/users.service';
-import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 
@@ -59,7 +58,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     RoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AdminModule,
     FontAwesomeModule,
     NgbModule,
     BrowserAnimationsModule,

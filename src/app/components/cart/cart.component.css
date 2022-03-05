@@ -139,7 +139,7 @@
   .cart {
     width: 250px;
     border: 1px solid black;
-    height: 765px;
+    height: 827;
     margin-left: 0px;
 
   }
@@ -149,13 +149,28 @@
   }
 }
 
-@media all and (max-width: 565px){
+@media all and (max-width: 600px){
+  .cartCheckout{
+    top: 645px;
+    height: 110px;
+  }
+
+  .cart{
+    top:80px;
+    height: 847px;
+    width: 175px;
+  }
 
   .imageInCart>img {
     display: none;
   }
 
-  .cart {
-    width: 200px;
+  .cartHeadline{
+    display: flex;
+    justify-content: center;
+  }
+
+  .cartHeadline>.ng-fa-icon{
+    margin-left: 10px;
   }
 }

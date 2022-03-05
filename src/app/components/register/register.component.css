@@ -120,6 +120,12 @@ input, select, .btn .btn-success {
   }
 }
 
+@media all and (max-width: 600px) {
+  .footer {
+    display: none;
+  }
+}
+
 @media all and (max-width:500px) {
   form {
     display: grid;
@@ -137,8 +143,8 @@ input, select, .btn .btn-success {
     margin-left: 0px;
   }
 
-  #globalIdField {
-    width: 285px;
+  #globalIdField, #streetField, #emailField, #validateInput, #passwordInput {
+    width: 275px;
     height: 30px;
   }
 
@@ -147,13 +153,13 @@ input, select, .btn .btn-success {
   }
 
   select {
-    width: 285px;
+    width: 275px;
     height: 30px;
     margin-left: 0px;
   }
 }
 
-@media all and (max-width: 450px){
+@media all and (max-width: 450px) {
   .registerPartOne {
     display: grid;
     grid-template-columns: 1fr;

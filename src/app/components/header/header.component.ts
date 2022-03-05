@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CategoriesService } from 'src/app/services/category.service';
 import { UsersService } from 'src/app/services/users.service';
 import { ToastrService } from 'ngx-toastr';
@@ -33,7 +32,7 @@ export class HeaderComponent implements OnInit {
 
   public moveToSpecificCategory(categoryId: number) {
     if (categoryId === 0) {
-      this.router.navigate(["/products"]);
+      this.router.navigate(["/ourProducts"]);
     }
     this.categoriesService.setCategoryId(categoryId)
   }

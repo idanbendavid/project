@@ -34,6 +34,10 @@
   .card{
     width: 250px;
   }
+
+  .card > img {
+    height: 85px;
+  }
 }
 
 @media all and (max-width: 565px){

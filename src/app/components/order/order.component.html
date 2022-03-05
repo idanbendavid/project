@@ -4,11 +4,11 @@
   </div>
 
   <div class="row order-content">
-    <div class="col-7 product-section">
+    <div class="col-7 product-section" id="contentToConvert">
       <div class="search-product-in-receipt">
         <input type="search" placeholder="Search Product In receipt" [(ngModel)]="searchProductInReceipt">
       </div>
-      <div id="contentToConvert">
+      <div>
         <h3 id="orderDetailsH4">Order Details</h3>
         <table class="order-table">
           <tr class="table-header-row">
@@ -35,7 +35,7 @@
     </div>
 
     <div class="col-5 user-details-section">
-      <div class="shipping-details">
+      <div class="shipping-details" id="contentToConvert">
         <h3>shipping details:</h3>
         <form class="shipping-details-form">
           <label id="orderCityLabel">City</label>
