@@ -200,6 +200,6 @@
   }
 
   .cartCheckout{
-    top: calc(100%-150px);
+    top: calc(100% - 150px);
   }
 }
