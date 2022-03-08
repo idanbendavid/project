@@ -9,17 +9,17 @@
   box-shadow: -7px 7px 2px 0px whitesmoke;
 }
 
-.card > button {
+.card>button {
   width: 110px;
 }
 
-.card > p{
+.card>p {
   margin-top: 6px;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-.card > img {
+.card>img {
   max-width: 180px;
   max-height: 120px;
 }
@@ -30,18 +30,34 @@
   border: 1px solid black;
 }
 
-@media all and (max-width: 650px){
-  .card{
+.notify-add-item {
+  max-width: 80px;
+  max-height: 20px;
+  background-color: lightyellow;
+  transition: 0.8s ease-in-out;
+}
+
+@media all and (max-width: 750px) {
+  .card {
     width: 250px;
   }
 
-  .card > img {
+  .card>img {
     height: 85px;
+  }
+
+  .card>button {
+    max-width: 85px;
   }
 }
 
-@media all and (max-width: 565px){
-  .card{
-    width: 170px;
+@media all and (max-width: 500px) {
+  .card {
+    width: 100px;
   }
+
+  .card>img {
+    max-width: 80px;
+  }
+
 }

@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Subscription } from 'rxjs';
+import { Subscription, timeout } from 'rxjs';
 import { IProducts } from 'src/app/models/IProducts';
 import { CartService } from 'src/app/services/cart.service';
 import { ItemsService } from 'src/app/services/items.service';
@@ -71,22 +71,23 @@ export class SingleProductComponent implements OnInit, OnDestroy {
           this.cartService.cart.lineItems.push(product);
         }
 
-        for(let index=0; index < this.cartService.cart.lineItems.length; index++){
+        for (let index = 0; index < this.cartService.cart.lineItems.length; index++) {
           this.cartService.updateFinalPrice(0);
           this.totalPrice += this.cartService.cart.lineItems[index].finalPrice;
           this.cartService.updateFinalPrice(this.totalPrice);
         }
 
+        this.toastr.success("item added to cart", 'success' , { timeOut: 500 })
       }
-    }, error => { this.toastr.error(error.error.error)})
+    }, error => { this.toastr.error(error.error.error) })
 
   }
 
   ngOnInit(): void {
-    if(this.usersService.userType === "admin"){
+    if (this.usersService.userType === "admin") {
       this.showButton = false;
     }
-    else{
+    else {
       this.showButton = true;
     }
   }

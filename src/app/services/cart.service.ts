@@ -8,6 +8,8 @@ import { ICart } from '../models/ICart';
 })
 export class CartService {
 
+  private showCartBasedOnWidthSubject = new Subject<boolean>();
+
   constructor(private http: HttpClient) { }
 
   public cart: ICart = {
@@ -15,6 +17,14 @@ export class CartService {
     dateCreated: '',
     lineItems: []
   };
+
+  setCartViewState(showCart: boolean) {
+    this.showCartBasedOnWidthSubject.next(showCart);
+  }
+
+  getCartViewState(): Observable<boolean> {
+    return this.showCartBasedOnWidthSubject.asObservable();
+  }
 
 
   public finalPrice = new BehaviorSubject<number>(0);

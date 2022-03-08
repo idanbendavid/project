@@ -1,7 +1,8 @@
-<div class="cart">
+<div class="cart" *ngIf="!this.showCart" >
   <div class="cartHeadline">
+    <button class="btn btn-danger close-cart" title="close cart" (click)="onCloseCartClicked()">X</button>
     <h4>{{usersService.firstName}} Cart</h4>
-    <fa-icon [icon]="faDupmster" title="Empty Cart"
+    <fa-icon [icon]="faTrash" title="Empty Cart"
       (click)="onClickDeleteAllItemsFromCart(this.cartService.cart.cartId)"></fa-icon>
   </div>
 

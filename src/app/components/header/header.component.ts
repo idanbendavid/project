@@ -6,6 +6,9 @@ import { ToastrService } from 'ngx-toastr';
 import { ProductsService } from 'src/app/services/products.service';
 import { ICategory } from 'src/app/models/ICategory';
 import { IProducts } from 'src/app/models/IProducts';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { CartService } from 'src/app/services/cart.service';
+import { ItemsService } from 'src/app/services/items.service';
 
 @Component({
   selector: 'app-header',
@@ -14,10 +17,14 @@ import { IProducts } from 'src/app/models/IProducts';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router, public categoriesService: CategoriesService, public usersService: UsersService, private toastr: ToastrService, public productsService: ProductsService) { }
+  constructor(private router: Router, public categoriesService: CategoriesService,
+    public usersService: UsersService, private toastr: ToastrService, public productsService: ProductsService,
+    public cartService: CartService, public itemsService: ItemsService) { }
 
   public products: IProducts[] = [];
   public categories: ICategory[] = [];
+  public faShoppingCart = faShoppingCart;
+  public showCart: boolean = false;
 
 
   public logout() {
@@ -45,6 +52,11 @@ export class HeaderComponent implements OnInit {
     }, error => { this.toastr.error(error.error) })
   }
 
+  public onShoppingCartIconClick(){
+    this.router.navigate(["/cart"]);
+    this.showCart = true;
+    this.cartService.setCartViewState(this.showCart);
+  }
 
   ngOnInit(): void {
     this.getAllCategories();

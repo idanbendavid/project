@@ -8,10 +8,11 @@
   z-index: 101;
   width: 100%;
   text-transform: capitalize;
+  justify-content: space-between;
 }
 
 .headline {
-  margin-left: 85px;
+  margin-left: 40px;
   color: white;
 }
 
@@ -20,6 +21,7 @@
   color: white;
   font-size: 20px;
   margin-left: 800px;
+  padding-right: 40px;
 }
 
 .divisions {
@@ -76,6 +78,9 @@ h3>.ng-fa-icon {
   font-size: 18px;
 }
 
+.cart-icon {
+  display: none;
+}
 
 @media all and (max-width:1600px) {
   .header {
@@ -94,10 +99,11 @@ h3>.ng-fa-icon {
   }
 }
 
-@media all and (max-width: 700px) {
+@media all and (max-width: 750px) {
   .header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    height: 80px;
   }
 
   .headline {
@@ -109,16 +115,18 @@ h3>.ng-fa-icon {
   }
 
   .userActions {
-    margin-right: 20px;
+    margin-left: 0px;
   }
 
   .userActions>p {
     display: none;
   }
-}
 
-@media all and (max-width: 600px) {
-  .header {
-    height: 80px;
+  .cart-icon {
+    display: block;
+  }
+
+  .userActions>h3 {
+    margin-left: 40px;
   }
 }

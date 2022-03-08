@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faTrashAlt, faDumpster } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
@@ -17,16 +17,22 @@ import { UsersService } from 'src/app/services/users.service';
 export class CartComponent implements OnInit, OnDestroy {
 
   public faTrashAlt = faTrashAlt;
-  public faDupmster = faDumpster;
+  public faTrash = faTrash;
   public quantityMinValue: number = 1;
   public totalPrice: any | number = 0;
   public deleteItemSubscription: Subscription;
   public deleteAllCartItemsSubscription: Subscription;
+  public showCartBasedOnWidthSubscription: Subscription;
   public isCompleteOrderClicked: boolean = false;
+  public showCart: boolean = false;
 
 
   constructor(public cartService: CartService, public usersService: UsersService, private modalService: NgbModal,
     public toastr: ToastrService, private router: Router, public itemsService: ItemsService) {
+
+    this.showCartBasedOnWidthSubscription = this.cartService.getCartViewState().subscribe(showCart => {
+      showCart = this.showCart
+    })
 
     this.deleteItemSubscription = this.itemsService.getDeleteOneItemSubject().subscribe(productId => {
       for (let i = 0; i < this.cartService.cart.lineItems.length; i++) {
@@ -160,6 +166,10 @@ export class CartComponent implements OnInit, OnDestroy {
     }, 2500);
   }
 
+  public onCloseCartClicked() {
+    this.cartService.setCartViewState(this.showCart);
+    this.router.navigate(["/ourProducts"]);
+  }
 
   ngOnInit(): void {
     this.getCartOfUser();
