@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: "myorder", component: OrderComponent },
   { path: "cart", component: CartComponent },
   { path: "admin", canActivate: [AdminGuard], component: AdminComponent },
-  { path: "", redirectTo: "ourProducts", pathMatch: "full" },
+  { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "**", component: Page404Component }
 ];
 

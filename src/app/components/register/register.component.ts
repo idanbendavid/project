@@ -70,9 +70,10 @@ export class RegisterComponent implements OnInit {
           this.usersService.firstName = successfulServerRequestData.newUser.firstName;
           this.usersService.token = successfulServerRequestData.token;
           this.usersService.userId = successfulServerRequestData.registerUser.insertId;
-          this.addCartToUser();
 
           this.router.navigate(["/ourProducts"]);
+
+          this.addCartToUser();
 
         }
 
