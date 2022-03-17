@@ -133,6 +133,14 @@ export class OrderComponent implements OnInit {
     }
   }
 
+  private clearData(){
+    localStorage.removeItem("token");
+    this.router.navigate(["/login"]);
+    this.usersService.firstName = "";
+    this.usersService.userType = "";
+    this.usersService.token = "";
+    this.usersService.userId = 0;
+  }
 
   public order() {
 
@@ -147,26 +155,22 @@ export class OrderComponent implements OnInit {
       orderDate: this.calcOrderDate()
     }
 
+    if(!newOrder.creditCard){
+      this.toastr.error("please enter credit card number again");
+      return;
+    }
+
     let observable = this.orderService.order(newOrder)
     observable.subscribe((response) => {
 
       if (response) {
-        this.toastr.success("Your Order Has Been Submitted");
-
-        this.clearFormInputData();
+        this.toastr.success("Your Order Has Been Submitted, Thanks For Shopping At Retails R Us Hoping To See You Again Soon");
 
         this.printRecieptAsPdf();
 
-        setTimeout(() => {
-          this.toastr.success("Thanks For Shopping At Retails R Us Hoping To See You Again Soon");
-          localStorage.removeItem("token");
-          this.router.navigate(["/login"]);
-          this.usersService.firstName = "";
-          this.usersService.userType = "";
-          this.usersService.token = "";
-          this.usersService.userId = 0;
-        }, 3000);
+        this.clearFormInputData();
 
+        this.clearData();
 
       }
     }, error => { this.toastr.error(error.error.error) })

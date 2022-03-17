@@ -42,8 +42,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onContinueClicked() {
-    if (this.globalIdFormControl.value === 0 || this.emailFormControl.value === "" || this.passwordFormControl.value === "") {
-      this.toastr.error("Invalid Request, Fields Can't Be Empty");
+    if (this.globalIdFormControl.value === 0 || this.globalIdFormControl.value > 999999999|| this.emailFormControl.value === "" || this.passwordFormControl.value === "") {
+      this.toastr.error("Invalid Request, check enterend values");
+      return
     }
     else {
       this.isShown = true;
@@ -87,8 +88,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
 
     this.globalIdFormControl = new FormControl(0,Validators.compose([Validators.required, Validators.minLength(9), Validators.maxLength(9)]));
-    this.emailFormControl = new FormControl("", Validators.compose([Validators.required,
-    Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g), Validators.email]));
+    this.emailFormControl = new FormControl("", Validators.compose([Validators.required, Validators.email]));
     this.passwordFormControl = new FormControl("", Validators.required);
     this.firstNameFormControl = new FormControl("", Validators.required);
     this.lastNameFormControl = new FormControl("", Validators.required);

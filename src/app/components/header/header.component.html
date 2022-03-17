@@ -7,7 +7,7 @@
   <div class="divisions">
     <div class="row">
       <div class="col">
-        <div *ngIf="usersService.firstName" ngbDropdown class="d-inline-block">
+        <div ngbDropdown class="d-inline-block">
           <h3 id="dropdownBasic1" ngbDropdownToggle>Categories</h3>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdownMenu">
             <button ngbDropdownItem (click)="moveToSpecificCategory(0)">All Products</button>
@@ -23,7 +23,7 @@
   <div class="navbar">
     <div class="userActions">
       <div>
-        <fa-icon class="cart-icon" [icon]="faShoppingCart" (click)="onShoppingCartIconClick()"></fa-icon>
+        <fa-icon *ngIf="!usersService.firstName || !usersService.token" class="cart-icon" [icon]="faShoppingCart" (click)="onShoppingCartIconClick()"></fa-icon>
       </div>
       <h3 *ngIf="!usersService.firstName" (click)="moveToLoginPage()">Log In</h3>
       <h3 *ngIf="usersService.firstName" (click)=" logout()">Log Out</h3>

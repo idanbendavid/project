@@ -47,7 +47,7 @@
   }
 
   .card>button {
-    max-width: 85px;
+    max-width: 70px;
   }
 }
 
@@ -57,7 +57,12 @@
   }
 
   .card>img {
-    max-width: 80px;
+    max-width: 70px;
+    max-height: 50px;
   }
 
+  .card>p {
+    font-size: 12px;
+    font-weight: 500;
+  }
 }

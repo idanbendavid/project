@@ -53,6 +53,9 @@ export class HeaderComponent implements OnInit {
   }
 
   public onShoppingCartIconClick(){
+    if(!this.usersService.firstName || !this.usersService.token){
+      return;
+    }
     this.router.navigate(["/cart"]);
     this.showCart = true;
     this.cartService.setCartViewState(this.showCart);
