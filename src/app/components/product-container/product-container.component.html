@@ -8,6 +8,8 @@
       [(ngModel)]="searchProduct">
   </div>
 
+  <span class="notify-about-quantity">set the quantity of your items by pressing "select quantity" button in the cart</span>
+
   <div class="products-container">
     <app-single-product *ngFor="let product of this.products | filter: searchProduct" [product]="product">
     </app-single-product>

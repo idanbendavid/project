@@ -199,7 +199,7 @@
     margin-left: 10px;
   }
 
-  .cartCheckout{
-    top: calc(100% - 150px);
+  .cartCheckout {
+    top: 100%;
   }
 }

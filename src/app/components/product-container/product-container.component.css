@@ -33,6 +33,9 @@ aside {
   padding-left: 15px;
 }
 
+.notify-about-quantity{
+  display: none;
+}
 
 @media all and (max-width: 1000px) {
   .searchInput {
@@ -56,6 +59,13 @@ aside {
     display: none;
   }
 
+  .notify-about-quantity{
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
   .products-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -65,13 +75,14 @@ aside {
 
   .searchInput {
     left: 100px;
+    padding-top: 100px;
   }
 }
 
 @media all and (max-width: 600px) {
 
   .products-container {
-    top: 40px;
+    top: 20px;
     margin-left: 10px;
     margin-right: 10px;
   }

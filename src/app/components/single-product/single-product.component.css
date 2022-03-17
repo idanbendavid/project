@@ -55,7 +55,7 @@
 @media all and (max-width: 500px) {
   .card {
     width: 100px;
-    height: 150px;
+    height: 125px;
   }
 
   .card>img {
