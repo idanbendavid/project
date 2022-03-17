@@ -23,7 +23,7 @@
   <div class="navbar">
     <div class="userActions">
       <div>
-        <fa-icon *ngIf="!usersService.firstName || !usersService.token" class="cart-icon" [icon]="faShoppingCart" (click)="onShoppingCartIconClick()"></fa-icon>
+        <fa-icon class="cart-icon" [icon]="faShoppingCart" (click)="onShoppingCartIconClick()"></fa-icon>
       </div>
       <h3 *ngIf="!usersService.firstName" (click)="moveToLoginPage()">Log In</h3>
       <h3 *ngIf="usersService.firstName" (click)=" logout()">Log Out</h3>

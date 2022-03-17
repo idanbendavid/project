@@ -69,11 +69,10 @@ aside {
 }
 
 @media all and (max-width: 600px) {
-  .searchInput {
-    display: none;
-  }
 
   .products-container {
     top: 110px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
