@@ -71,7 +71,7 @@ aside {
 @media all and (max-width: 600px) {
 
   .products-container {
-    top: 110px;
+    top: 40px;
     margin-left: 10px;
     margin-right: 10px;
   }
